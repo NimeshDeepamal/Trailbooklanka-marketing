@@ -1,5 +1,4 @@
 import React from "react";
-import sampleVideo from "../assets/background.mp4"; 
 import sigiriya from "../assets/sigiriya.jpg"; 
 
 const Description1 = () => {
@@ -13,7 +12,7 @@ const Description1 = () => {
             controls
             poster={sigiriya} // optional thumbnail
           >
-            <source src={sampleVideo} type="video/mp4" />
+            <source src="/background.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
         </div>
