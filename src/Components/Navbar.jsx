@@ -1,4 +1,4 @@
-"use client";
+
 
 import React, { useRef, useState } from "react";
 import { HiOutlineMenu, HiOutlineX } from "react-icons/hi"; // react-icons imports
