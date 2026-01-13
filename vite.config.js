@@ -7,4 +7,9 @@ export default defineConfig({
   resolve: {
     dedupe: ['clsx'], // <-- Helps with resolving from nested deps
   },
+  build: {
+    rollupOptions: {
+      external: ['@tabler/icons-react']
+    }
+  }
 })
