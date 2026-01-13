@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import background from "../assets/background.jpg";
+import background from "../assets/background.webp";
 
 const HeroSection = () => {
   return (

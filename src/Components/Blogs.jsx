@@ -5,7 +5,7 @@ const CulturalThings = () => {
     {
       title: "Jaffna Nallur Kovil Festival",
       category: "A Rare Northern Cultural Spectacle",
-      src: "/nallur-kovil.jpg",
+      src: "/nallur-kovil.webp",
       content: (
         <p>
           The Nallur Kandaswamy Kovil Festival in Jaffna is a deeply spiritual
@@ -18,7 +18,7 @@ const CulturalThings = () => {
     {
       title: "Riverston",
       category: "Misty Mountains and Untouched Trails",
-      src: "/riverston.JPG",
+      src: "/riverston.webp",
       content: (
         <p>
           Riverston is a tranquil highland escape known for cloud forests, cool
@@ -30,7 +30,7 @@ const CulturalThings = () => {
     {
       title: "Kalpitiya Lagoon",
       category: "Winds, Dolphins, and Silent Shores",
-      src: "/kalpitiya.jpg",
+      src: "/kalpitiya.webp",
       content: (
         <p>
           Kalpitiya is a secluded coastal region famous for dolphin watching,
@@ -54,7 +54,7 @@ const CulturalThings = () => {
     {
       title: "Madulsima Mini World’s End",
       category: "Cliffs Above the Clouds",
-      src: "/mini-worlds.jpg",
+      src: "/mini-worlds.webp",
       content: (
         <p>
           Madulsima provides breathtaking cliffside views similar to World’s End
@@ -90,7 +90,7 @@ const CulturalThings = () => {
     {
       title: "Mannar Island",
       category: "Desert Landscapes and Ancient Ruins",
-      src: "/mannar.jpg",
+      src: "/mannar.webp",
       content: (
         <p>
           Mannar Island offers a unique landscape of baobab trees, salt flats,
