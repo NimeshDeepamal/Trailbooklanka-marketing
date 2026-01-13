@@ -1,4 +1,4 @@
-"use client";
+
 
 import { InfiniteMovingCards } from "./infinite-moving-cards";
 

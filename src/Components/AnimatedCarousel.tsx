@@ -1,20 +1,18 @@
-"use client";
-
+import { AnimatePresence, motion } from "framer-motion";
 import React, {
+  createContext,
+  useContext,
   useLayoutEffect,
   useRef,
   useState,
-  createContext,
-  useContext,
 } from "react";
 import {
   HiOutlineArrowNarrowLeft,
   HiOutlineArrowNarrowRight,
   HiX,
 } from "react-icons/hi";
-import { cn } from "../lib/utils";
-import { AnimatePresence, motion } from "framer-motion";
 import { useOutsideClick } from "../hooks/use-outside-click";
+import { cn } from "../lib/utils";
 
 interface CarouselContextType {
   onCardClose: (index: number) => void;
@@ -95,6 +93,7 @@ const Card = ({
 
   return (
     <>
+      {/* MODAL (unchanged) */}
       <AnimatePresence>
         {open && (
           <div className="fixed inset-0 z-50 h-screen overflow-auto">
@@ -110,33 +109,47 @@ const Card = ({
               exit={{ opacity: 0 }}
               ref={containerRef}
               layoutId={layout ? `card-${card.title}` : undefined}
-              className="relative z-[60] mx-auto my-10 h-fit max-w-5xl rounded-3xl bg-white p-4 font-sans md:p-10 dark:bg-neutral-900"
+              className="relative z-[60] mx-auto my-10 h-fit max-w-5xl rounded-3xl bg-white p-4 md:p-10 dark:bg-neutral-900"
             >
               <button
                 className="sticky top-4 right-0 ml-auto flex h-8 w-8 items-center justify-center rounded-full bg-black dark:bg-white"
                 onClick={handleClose}
               >
-                <HiX className="h-6 w-6 text-neutral-100 dark:text-neutral-900" />
+                <HiX className="h-6 w-6 text-white dark:text-black" />
               </button>
-              <motion.p className="mt-4 text-2xl font-semibold text-neutral-700 md:text-5xl dark:text-white">
+
+              <motion.p className="mt-4 text-2xl md:text-5xl font-semibold dark:text-white">
                 {card.title}
               </motion.p>
-              <motion.p className="text-base font-medium text-black dark:text-white">
+              <motion.p className="text-base font-medium dark:text-white">
                 {card.category}
               </motion.p>
+
               <div className="py-10">{card.content}</div>
             </motion.div>
           </div>
         )}
       </AnimatePresence>
 
+      {/* CARD */}
       <motion.button
         layoutId={layout ? `card-${card.title}` : undefined}
         onClick={handleOpen}
         layout
-        className="relative z-10 flex h-80 w-56 flex-col items-start justify-start overflow-hidden rounded-3xl bg-gray-100 md:h-[40rem] md:w-96 dark:bg-neutral-900"
+        className="relative z-10 flex h-80 w-56 md:h-[40rem] md:w-96 overflow-hidden rounded-3xl bg-gray-100 dark:bg-neutral-900"
       >
+        {/* IMAGE */}
+        <BlurImage
+          src={card.src}
+          alt={card.title}
+          fill
+          className="absolute inset-0 z-10 object-cover"
+        />
+
+        {/* TOP GRADIENT */}
         <div className="pointer-events-none absolute inset-x-0 top-0 z-30 h-full bg-gradient-to-b from-black/50 via-transparent to-transparent" />
+
+        {/* TOP TITLE & CATEGORY */}
         <div className="relative z-40 p-8">
           <motion.p className="mt-2 max-w-xs text-left font-sans text-xl font-semibold text-white md:text-3xl">
             {card.title}
@@ -145,12 +158,13 @@ const Card = ({
             {card.category}
           </motion.p>
         </div>
-        <BlurImage
-          src={card.src}
-          alt={card.title}
-          fill
-          className="absolute inset-0 z-10 object-cover"
-        />
+
+        {/*  BOTTOM OVERLAY WITH BLACK TRANSPARENT BACKGROUND */}
+        <div className="absolute bottom-0 inset-x-0 z-40 p-4 bg-black/50 ">
+          <p className="text-white text-sm md:text-base font-medium">
+            {card.content}
+          </p>
+        </div>
       </motion.button>
     </>
   );
@@ -219,7 +233,9 @@ const AnimatedCarousel = ({
     typeof window !== "undefined" && window.innerWidth < 768;
 
   return (
-    <CarouselContext.Provider value={{ onCardClose: handleCardClose, currentIndex }}>
+    <CarouselContext.Provider
+      value={{ onCardClose: handleCardClose, currentIndex }}
+    >
       <div className="relative w-full ">
         <div
           className="flex w-full overflow-x-scroll scroll-smooth scrollbar-hide py-10 md:py-20 min-h-[320px] gap-4 max-w-7xl mx-auto pl-8 hide-scrollbar"
@@ -235,7 +251,11 @@ const AnimatedCarousel = ({
               animate={{
                 opacity: 1,
                 y: 0,
-                transition: { duration: 0.5, delay: 0.2 * index, ease: "easeOut" },
+                transition: {
+                  duration: 0.5,
+                  delay: 0.2 * index,
+                  ease: "easeOut",
+                },
               }}
               className="min-w-[230px] md:min-w-[384px] rounded-3xl last:pr-[5%] md:last:pr-[33%]"
             >

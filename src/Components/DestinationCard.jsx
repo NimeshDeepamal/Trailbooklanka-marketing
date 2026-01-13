@@ -1,6 +1,4 @@
-"use client";
-
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { cn } from "../lib/utils";
 
 const cards = [
@@ -23,17 +21,44 @@ const cards = [
   {
     title: "Hikkaduwa Beach",
     text: "A journey of a thousand miles.",
-    bg: "https://images.wanderon.in/gallery/new/2025/05/02/1746180247499-hikkaduwa-beach.webp",
+    bg: "https://images.unsplash.com/photo-1682368593766-1f788256c116?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8aGlra2FkdXdhfGVufDB8fDB8fHww",
   },
   {
-    title: "Card 5",
-    text: "A journey of a thousand miles.",
-    bg: "https://www.planetware.com/wpimages/2023/03/sri-lanka-best-places-to-visit-intro-paragraph-elephants.jpg",
+    title: "Sigiriya Rock Fortress",
+    text: "Climb the legendary Lion Rock.",
+    bg: "https://images.unsplash.com/photo-1711797750174-c3750dd9d7c9?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c2lnaXJpeWF8ZW58MHx8MHx8fDA%3D",
+    isLocal: true,
   },
   {
-    title: "Card 6",
-    text: "A journey of a thousand miles.",
-    bg: "https://cdn2.tropicalsky.co.uk/images/800x600/dondra-head-lighthouse-sri-lanka.jpg",
+    title: "Nine Arches Bridge, Ella",
+    text: "A timeless engineering wonder.",
+    bg: "https://images.unsplash.com/photo-1574611122955-5baa61496637?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8bmluZSUyMGFyY2glMjBicmlkZ2V8ZW58MHx8MHx8fDA%3D",
+    isLocal: true,
+  },
+  {
+    title: "Yala National Park",
+    text: "Wildlife encounters in the heart of nature.",
+    bg: "https://images.unsplash.com/photo-1636966542391-8dd8a91f1390?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fHlhbGElMjBuYXRpb25hbCUyMHBhcmt8ZW58MHx8MHx8fDA%3D",
+    isLocal: true,
+  },
+  {
+    title: "Mirissa Whale Watching",
+    text: "Witness giants of the ocean.",
+    bg: "https://images.unsplash.com/photo-1734450919608-5bbddf6859cf?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fG1pcmlzc2ElMjB3aGFsZXxlbnwwfHwwfHx8MA%3D%3D",
+    isLocal: true,
+  },
+
+  {
+    title: "Galle Fort",
+    text: "Colonial charm by the sea.",
+    bg: "https://images.unsplash.com/photo-1734279135096-2854a06faba8?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Z2FsbGUlMjBmb3J0fGVufDB8fDB8fHww",
+    isLocal: true,
+  },
+  {
+    title: "Horton Plains & World’s End",
+    text: "Where the earth meets the sky.",
+    bg: "https://images.unsplash.com/photo-1692204806881-b30b3791f751?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGhvcnRvbiUyMHBsYWlucyUyMG5hdGlvbmFsJTIwcGFya3xlbnwwfHwwfHx8MA%3D%3D",
+    isLocal: true,
   },
 ];
 
@@ -71,27 +96,27 @@ export function DestinationCard() {
   }, [current]);
 
   return (
-    <div className="w-full overflow-hidden" >
+    <div className="w-full overflow-hidden">
       <div
         ref={containerRef}
         className="flex gap-4 overflow-x-auto scroll-smooth hide-scrollbar"
       >
         {cards.map((card, index) => (
-         <div
-          key={index}
-          className={cn(
-            "relative flex-shrink-0 h-96 rounded-md shadow-xl overflow-hidden flex flex-col justify-end p-4",
-            "w-full xs:w-[80%] sm:w-[60%] md:w-1/2 lg:w-1/3 xl:w-1/4"
-          )}
-        >
-        {/* Background Image */}
-      <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: `url(${card.bg})` }}
-      />
+          <div
+            key={index}
+            className={cn(
+              "relative flex-shrink-0 h-96 rounded-md shadow-xl overflow-hidden flex flex-col justify-end p-4",
+              "w-full xs:w-[80%] sm:w-[60%] md:w-1/2 lg:w-1/3 xl:w-1/4"
+            )}
+          >
+            {/* Background Image */}
+            <div
+              className="absolute inset-0 bg-cover bg-center"
+              style={{ backgroundImage: `url(${card.bg})` }}
+            />
 
-      {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-black/40" />
+            {/* Dark Overlay */}
+            <div className="absolute inset-0 bg-black/40" />
 
             <div className="text relative z-50">
               <h1 className="font-bold text-xl md:text-2xl text-gray-50 relative">

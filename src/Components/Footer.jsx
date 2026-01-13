@@ -3,7 +3,7 @@ import logo from "../assets/sigiriya.jpg"; // Replace with your actual logo path
 const quickLinks = [
   { text: "Home", href: "#" },
   { text: "Destinations", href: "#Destinations" },
-  { text: "Our Services", href: "#Our Services" },
+  { text: "Our Services", href: "#Our-Services" },
   { text: "Testimonials", href: "#Testimonials" },
   { text: "Blogs", href: "#Blogs" },
 ];

@@ -1,5 +1,3 @@
-"use client";
-
 import React, { useEffect, useState } from "react";
 import { cn } from "../lib/utils";
 
@@ -86,7 +84,7 @@ export const InfiniteMovingCards: React.FC<InfiniteMovingCardsProps> = ({
             key={item.name + idx}
             className={cn(
               "relative shrink-0 rounded-2xl border border-b-0 px-6 py-6",
-              "bg-[linear-gradient(180deg,#fafafa,#f5f5f5)] dark:bg-[linear-gradient(180deg,#27272a,#18181b)]",
+              "bg-[linear-gradient(180deg,#fafafa,#f5f5f5)] dark:bg-[linear-gradient(180deg,#27492a,#18123b)]",
               "dark:border-zinc-700 border-zinc-200",
               // Responsive widths
               "w-[80vw] sm:w-[60vw] md:w-[45vw] lg:w-[350px] xl:w-[450px]"

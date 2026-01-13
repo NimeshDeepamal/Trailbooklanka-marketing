@@ -1,21 +1,15 @@
-import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import background from "../assets/background.mp4"; 
+import { useEffect, useState } from "react";
+import background from "../assets/background.jpg";
 
 const HeroSection = () => {
   return (
     <div className="relative h-screen w-full overflow-hidden mb-0">
       {/* Background Video */}
-      <video
+      <img
         className="absolute top-0 left-0 h-full w-full object-cover"
-        autoPlay
-        loop
-        muted
-        playsInline
-      >
-        <source src={background} type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
+        src={background}
+      ></img>
 
       {/* Overlay content */}
       <div className="relative z-10 flex h-full w-full flex-col items-center justify-center bg-black/50 text-center text-white px-4">
@@ -30,7 +24,7 @@ const HeroSection = () => {
         </motion.h1>
 
         <p className="text-lg max-w-xl mb-6">
-        Discover Sri Lanka Beyond the Guidebook.
+          Discover Sri Lanka Beyond the Guidebook.
         </p>
         <div className="flex gap-4">
           <button className="bg-white text-black px-6 py-2 rounded-md font-medium hover:bg-gray-100 transition duration-200">
